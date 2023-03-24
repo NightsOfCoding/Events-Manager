@@ -1,10 +1,61 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-    "users": []
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "email": "yashwanth@gmail.com",
+      "username": "yashwanth",
+      "password": "Yash@123",
+      "events": [],
+      "id": 1
+    },
+    {
+      "email": "abc@gmail.com",
+      "username": "abc",
+      "password": "ABC@123q",
+      "events": [],
+      "id": 2
+    },
+    {
+      "email": "xyz@gmail.com",
+      "username": "xyz",
+      "password": "ABC@123q",
+      "events": [],
+      "id": 3
+    },
+    {
+      "email": "pqr@gmail.com",
+      "username": "pqr",
+      "password": "ABC@123q",
+      "events": [],
+      "id": 4
+    },
+    {
+      "email": "asd@gmail.com",
+      "username": "asd",
+      "password": "Asd@1234",
+      "events": [
+        {"eventname": "Event 1", "price": "10", "id":1},
+        {"eventname": "Event 2", "price": "20", "id":2},
+        {"eventname": "Event 3", "price": "30", "id":3},
+        {"eventname": "Event 4", "price": "40", "id":4}
+      ],
+      "id": 5
+    }
+  ]
 }

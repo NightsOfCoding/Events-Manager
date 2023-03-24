@@ -1,23 +1,42 @@
 import React from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
-import { useSelector, useDispatch } from 'react-redux'
-import Form from "react-bootstrap/Form"
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useSelector, useDispatch } from 'react-redux'
+import Form from "react-bootstrap/Form"
 import {
     setIsLoginFalse, 
     setEmail, 
     setPassword, 
     setUsername,
-    setErrorMsg
+    setErrorMsg,
+    setSuccessMsg,
+    setLoggedIn
 } from "../stores/loginSlice"
-import { checkUser } from "../api/loginAPI"
+import { 
+    checkUser, 
+    addUser 
+} from "../api/api"
 import { validateRegistration } from "../constants/validate"
-import Alert from 'react-bootstrap/Alert';
+import { 
+    USER_EXISTS, 
+    USER_CREATED, 
+    USER_LOGGED, 
+    USER_NOT_FOUND,
+    USERNAME_INVALID
+} from "../constants/constants"
+import LoginAlert from "./loginAlert"
+import { useNavigate } from "react-router-dom"
+import {
+    setLoggeduserEmail,
+    setUserSession
+} from "../stores/sessionSlice"
 
 export default function Login() {
-    const {isLogin, username, email, password, error_msg} = useSelector((store)=> store.login)
+    const {isLogin, username, email, password} = useSelector((store)=> store.login)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     function validateCred(email, password) {
@@ -25,39 +44,74 @@ export default function Login() {
 
             if (flag.length > 0 || flag.msg) {
                 dispatch(setErrorMsg(flag))
+                dispatch(setLoggedIn(false))
+                return
             } else {
                 dispatch(setErrorMsg(""))
+                dispatch(setLoggedIn(true))
+                return true
             }
     }
 
     function handleLogin() {
-        console.log("Login")
-        checkUser(email, password)
-        validateCred(email, password)
+        const flag = validateCred(email, password)
+        if (flag) {
+            const userExist = checkUser(email, password)
+
+            if (userExist) {
+                dispatch(setSuccessMsg(USER_LOGGED))
+                dispatch(setLoggedIn(true))
+                dispatch(setLoggeduserEmail(email))
+                dispatch(setUserSession(true))
+                navigate("/Events")
+            } else {
+                dispatch(setErrorMsg(USER_NOT_FOUND))
+                dispatch(setLoggedIn(false))
+            }
+        }
     }
 
     function handleRegister() {
-        console.log("Sign up")
 
         if (username.length === 0) {
-            dispatch(setErrorMsg("*Invalid Username"))
+            dispatch(setErrorMsg(USERNAME_INVALID))
             return
         }
-        validateCred(email, password)
+        const flag = validateCred(email, password)
+
+        if (flag) {
+            const userExist = addUser(email, password, username)
+
+            if (!userExist) {
+                dispatch(setErrorMsg(USER_EXISTS))
+                dispatch(setLoggedIn(false))
+            } else {
+                dispatch(setSuccessMsg(USER_CREATED))
+                dispatch(setLoggedIn(true))
+                navigate("/")
+            }
+        }
     }
 
     return (
-            <Card className="text-center">
+        <Container>
+            <Row>
+                <Col xs={8} md={4}/>
+                <Col xs={8} md={4}>
+                    <LoginCard/>
+                </Col>
+                <Col xs={8} md={4}/>
+            </Row>
+        </Container>
+    )
+
+    function LoginCard() {
+        return (
+            <>
+                <Card className="text-center">
                 <Card.Header>{isLogin ? "SIGN IN" : "SIGN UP"}</Card.Header>
                 <Card.Body>
-                    { error_msg.msg ?
-                        <Alert variant="danger">
-                            {error_msg.msg}
-                            <ul>
-                                {error_msg.rules.map((rule, i)=><li key={i}>{rule}</li>)}
-                            </ul>
-                        </Alert> 
-                        : error_msg.length > 0 && <Alert variant="danger">{error_msg}</Alert>}
+                    <LoginAlert/>
                     <Form>
                         <Form.Group as={Row} className="mb-3" controlId="formBasicEmail">
                             <Form.Label column sm="4">
@@ -104,6 +158,8 @@ export default function Login() {
                         </span>
                     }
                 </Card.Footer>
-            </Card>
-    )
+                </Card>
+            </>
+        )
+    }
 }

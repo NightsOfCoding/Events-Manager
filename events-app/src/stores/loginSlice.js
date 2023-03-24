@@ -8,27 +8,30 @@ export const loginSlice = createSlice({
         username: "",
         email: "",
         password: "",
-        error_msg: ""
+        error_msg: "",
+        success_msg: ""
     },
     reducers: {
         setIsLoginTrue: (state) => {
             return {
-                ...state,
+                loggedIn: false,
                 isLogin: true,
                 username: "",
                 email: "",
                 password: "",
-                error_msg: ""
+                error_msg: "",
+                success_msg: ""
             }
         },
         setIsLoginFalse: (state) => {
             return {
-                ...state,
+                loggedIn: false,
                 isLogin: false,
                 username: "",
                 email: "",
                 password: "",
-                error_msg: ""
+                error_msg: "",
+                success_msg: ""
             }
         },
         setEmail: (state, action) => {
@@ -46,6 +49,12 @@ export const loginSlice = createSlice({
             } else {
                 state.error_msg = action.payload
             }
+        },
+        setSuccessMsg: (state, action) => {
+            state.success_msg = action.payload
+        },
+        setLoggedIn: (state, action) => {
+            state.loggedIn = action.payload
         }
     },
 })
@@ -56,7 +65,9 @@ export const {
     setEmail, 
     setPassword, 
     setUsername,
-    setErrorMsg
+    setErrorMsg,
+    setSuccessMsg,
+    setLoggedIn
 } = loginSlice.actions
 
 export default loginSlice.reducer
