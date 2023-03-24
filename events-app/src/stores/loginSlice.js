@@ -55,6 +55,11 @@ export const loginSlice = createSlice({
         },
         setLoggedIn: (state, action) => {
             state.loggedIn = action.payload
+        },
+        setInputs: (state, action) => {
+            state.email = action.payload.email
+            state.username = action.payload.username
+            state.password = action.payload.password
         }
     },
 })
@@ -67,7 +72,8 @@ export const {
     setUsername,
     setErrorMsg,
     setSuccessMsg,
-    setLoggedIn
+    setLoggedIn,
+    setInputs
 } = loginSlice.actions
 
 export default loginSlice.reducer

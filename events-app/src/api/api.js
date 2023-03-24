@@ -72,33 +72,37 @@ function validateUserAlreadyExists(email) {
 
 function addEventToUser(form, loggedUserEmail) {
     const user = db.users.find((user)=> user.email === loggedUserEmail)
-    const events = new Array(user.events)
     let flag = true
 
-    fetch(`${CREATE_USER_EVENTS}/${user.id}`, {
-        method: "PATCH",
+    fetch(`${CREATE_USER_EVENTS}`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "events": events
+            "email": user.email,
+            "userid": user.id,
+            "username": user.username,
+            "eventname": form.eventName,
+            "eventdate": form.eventDate,
+            "eventdesc": form.eventDesc,
+            "price": form.eventPrice,
+            "eventtype": form.eventType,
+            "eventtc": form.eventTC,
         })
     })
     .then((response)=> {
         if (response.status < 200 || response.status > 201) {
-            flag = false
             throw new Error(EVENTS_CREATION_FAILED)
         }
         return response.json()
     })
     .then(res=>{
         if (!res.id) {
-            flag = false
             throw new Error(EVENTS_CREATION_FAILED)
         }
     })
     .catch(err=> {
-        flag = false
         console.error(err)
     })
 

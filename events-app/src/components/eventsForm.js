@@ -18,9 +18,10 @@ import { useSelector } from "react-redux";
 import { addEventToUser } from "../api/api";
 import { setLoggeduserEmail } from "../stores/sessionSlice";
 import { EVENTS_CREATION_FAILED, EVENTS_CREATED } from "../constants/constants";
+import {clearForm} from "../stores/formSlice";
 
 export default function EventsForm() {
-    const {loggedUserEmail} = useSelector((store)=>store.session)
+    const {loggedUserEmail, loggedInUser, user} = useSelector((store)=>store.session)
     const {alertType, alertMsg, hide, show} = useSelector((store)=>store.alert)
     const form = useSelector((store)=>store.form)
     const dispatch = useDispatch()
@@ -30,7 +31,8 @@ export default function EventsForm() {
             dispatch(setAlertTimeOut())
         }, show)
     }
-    function handleSubmit(e) {
+    
+    function saveForm() {
         const flag = validateForm(form, loggedUserEmail)
 
         if (flag.field.length > 0) {
@@ -44,9 +46,11 @@ export default function EventsForm() {
                 dispatch(setLoggeduserEmail(loggedUserEmail))
                 dispatch(setAlerts({"msg": EVENTS_CREATED, "type": "success"}))
                 closeAlert()
+                dispatch(clearForm())
             } else {
                 dispatch(setAlerts({"msg": EVENTS_CREATION_FAILED, "type": "danger"}))
                 closeAlert()
+                dispatch(clearForm())
             }
         }
     }
@@ -68,7 +72,7 @@ export default function EventsForm() {
 
     return (
         <div>
-            <Form>
+            {/* <Form> */}
                 <FormAlerts/>
                 <Row>
                     <Col>
@@ -120,9 +124,9 @@ export default function EventsForm() {
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Button type="button" onClick={handleSubmit}>Submit</Button>
+                    <Button type="button" onClick={saveForm}>Save</Button>
                 </Row>
-            </Form>
+            {/* </Form> */}
         </div>
     )
 }

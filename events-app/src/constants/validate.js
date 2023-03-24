@@ -52,12 +52,16 @@ function validateForm(form, loggedUserEmail) {
     }
 
     if (form.eventName.length > 0) {
-        let user = db.users.find((user)=> user.email === loggedUserEmail)
-        let eventname = user.events.find((event)=> event.eventname === form.eventName)
+        let events = db.events.filter((evt)=> evt.email === loggedUserEmail)
     
-        if (eventname) {
-            flag.field = "Please Provide Different Name"
-            flag.msg = "Unique Field Event Name "
+        if (events.length > 0) {
+            events.forEach(evt => {
+                if (evt.eventname === form.eventName) {
+                    flag.field = "Please Provide Different Name"
+                    flag.msg = "Unique Field Event Name "
+                    return flag
+                }
+            });
         }
     }
 

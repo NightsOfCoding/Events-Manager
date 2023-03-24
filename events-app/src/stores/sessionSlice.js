@@ -13,30 +13,31 @@ export const sessionSlice = createSlice({
     reducers: {
         setLoggeduserEmail: (state, action) => {
             if (action.payload) {
-                db.users.forEach((user) => {
+                let events = db.events.filter((evt) => evt.email===action.payload)
+                let user = db.users.find((usr)=> usr.email === action.payload)
 
-                    if (user.email === action.payload) {
-                        state.loggedUserEmail = user.email
-                        state.loggedInUser = user.username
-                        state.events = user.events
-
-                        let total_price = user.events.reduce((acc, cur)=> {
-                            return parseInt(acc) + parseInt(cur.price)
-                        }, state.total_price)
-
-                        if (total_price) {
-                            state.total_price =  total_price
-                        }
-
-                        state.user = {
-                            "email": user.email,
-                            "username": user.username,
-                            "password": user.password,
-                            "events": user.events,
-                            "id": user.id
-                        }
+                if (user.email) {
+                    state.user = { 
+                        "email": user.email, 
+                        "username": user.username,
+                        "userid": user.id
                     }
-                })
+
+                    state.loggedUserEmail = user.email
+                    state.loggedInUser = user.username
+                }
+                console.log(events)
+                if (events.length > 0) {
+                    state.events = events
+
+                    let intialValue = 0
+                    let total_price = db.events.reduce((acc, cur)=> {
+                        return parseInt(acc) + parseInt(cur.price)
+                    }, intialValue)
+                    if (total_price) {
+                        state.total_price = total_price
+                    }
+                }
 
             } else {
                 state.loggedUserEmail = action.payload

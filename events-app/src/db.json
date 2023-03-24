@@ -1,21 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "email": "yashwanth@gmail.com",
@@ -49,13 +32,77 @@
       "email": "asd@gmail.com",
       "username": "asd",
       "password": "Asd@1234",
-      "events": [
-        {"eventname": "Event 1", "price": "10", "id":1},
-        {"eventname": "Event 2", "price": "20", "id":2},
-        {"eventname": "Event 3", "price": "30", "id":3},
-        {"eventname": "Event 4", "price": "40", "id":4}
-      ],
       "id": 5
+    }
+  ],
+  "events": [
+    {
+      "email": "asd@gmail.com",
+      "userid": 5,
+      "username": "asd",
+      "eventname": "Event 1",
+      "price": "10",
+      "id": 1
+    },
+    {
+      "email": "asd@gmail.com",
+      "userid": 5,
+      "username": "asd",
+      "eventname": "Event 2",
+      "price": "20",
+      "id": 2
+    },
+    {
+      "email": "asd@gmail.com",
+      "userid": 5,
+      "username": "asd",
+      "eventname": "Event 3",
+      "price": "30",
+      "id": 3
+    },
+    {
+      "email": "asd@gmail.com",
+      "userid": 5,
+      "username": "asd",
+      "eventname": "Event 4",
+      "price": "40",
+      "id": 4
+    },
+    {
+      "email": "asd@gmail.com",
+      "userid": 5,
+      "username": "asd",
+      "eventname": "Event 5",
+      "eventdate": "2023-03-31",
+      "eventdesc": "testing",
+      "price": "3",
+      "eventtype": "Normal",
+      "eventtc": true,
+      "id": 5
+    },
+    {
+      "email": "pqr@gmail.com",
+      "userid": 4,
+      "username": "pqr",
+      "eventname": "Event 1",
+      "eventdate": "2023-03-31",
+      "eventdesc": "Testing",
+      "price": "4",
+      "eventtype": "Normal",
+      "eventtc": true,
+      "id": 6
+    },
+    {
+      "email": "pqr@gmail.com",
+      "userid": 4,
+      "username": "pqr",
+      "eventname": "Event 2",
+      "eventdate": "2023-03-31",
+      "eventdesc": "Testing",
+      "price": "3",
+      "eventtype": "Normal",
+      "eventtc": true,
+      "id": 7
     }
   ]
 }

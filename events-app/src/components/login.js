@@ -13,7 +13,7 @@ import {
     setUsername,
     setErrorMsg,
     setSuccessMsg,
-    setLoggedIn
+    setLoggedIn,
 } from "../stores/loginSlice"
 import { 
     checkUser, 
@@ -36,8 +36,8 @@ import {
 
 export default function Login() {
     const {isLogin, username, email, password} = useSelector((store)=> store.login)
-    const navigate = useNavigate()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     function validateCred(email, password) {
         const flag = validateRegistration(email, password)
@@ -72,7 +72,6 @@ export default function Login() {
     }
 
     function handleRegister() {
-
         if (username.length === 0) {
             dispatch(setErrorMsg(USERNAME_INVALID))
             return
@@ -113,12 +112,12 @@ export default function Login() {
                 <Card.Body>
                     <LoginAlert/>
                     <Form>
-                        <Form.Group as={Row} className="mb-3" controlId="formBasicEmail">
+                        <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm="4">
                                 Email
                             </Form.Label>
                             <Col sm="8">
-                                <Form.Control required type="email" placeholder="Enter email" value={email} onChange={(e)=> dispatch(setEmail(e.target.value))}/>
+                                <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>dispatch(setEmail(e.target.value))}/>
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -126,22 +125,21 @@ export default function Login() {
                         </Form.Group>
 
                         {!isLogin &&
-                        <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+                        <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm="4">
                                 User Name
                             </Form.Label>
                             <Col sm="8">
-                                <Form.Control required type="text" placeholder="User name" value={username} onChange={(e)=>dispatch(setUsername(e.target.value))}/>
+                                <Form.Control type="text" placeholder="User name" value={username} onChange={(e)=>dispatch(setUsername(e.target.value))}/>
                             </Col>
-                        </Form.Group>
-                        }
+                        </Form.Group>}
 
-                        <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+                        <Form.Group as={Row} className="mb-3">
                             <Form.Label column sm="4">
                                 Password
                             </Form.Label>
                             <Col sm="8">
-                                <Form.Control required type="password" placeholder="Password" value={password} onChange={(e)=>dispatch(setPassword(e.target.value))}/>
+                                <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>dispatch(setPassword(e.target.value))}/>
                             </Col>
                         </Form.Group>
 

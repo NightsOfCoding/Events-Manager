@@ -8,9 +8,9 @@ export default function EventStack() {
     const {events} = useSelector((store)=>store.session)
 
     function EventItems() {
-        return (events.map((events) => {
-                return <div key={events.id} className="bg-light border">
-                    {events.eventname}
+        return (events.map((event) => {
+                return <div key={event.id} className="bg-light border">
+                    {event.eventname}
                     <MdDeleteForever/>
                     <RiEdit2Fill/>
                 </div>

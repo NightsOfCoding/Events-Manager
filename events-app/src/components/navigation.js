@@ -13,7 +13,7 @@ import {
 import {FaUserCircle} from "react-icons/fa";
 
 export default function Navigation() {
-    const {loggedIn} = useSelector((store)=>store.login)
+    const {loggedIn, isLogin } = useSelector((store)=>store.login)
     const {isUserLoggedIn, loggedInUser} = useSelector((store)=>store.session)
 
     const navigate = useNavigate()
