@@ -88,6 +88,7 @@ export default function Login() {
             } else {
                 dispatch(setSuccessMsg(USER_CREATED))
                 dispatch(setLoggedIn(true))
+                dispatch(setIsLoginFalse())
                 navigate("/")
             }
         }

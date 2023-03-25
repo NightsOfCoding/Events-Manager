@@ -98,7 +98,13 @@ button{
 }
 
 .event:hover {
-    background-color: #0d6efd;
+    background-color: #5094fc;
+}
+
+.deleteEventWrapper {
+    height: 100%;
+    /* align-items: flex-end; */
+    /* justify-content: flex-end; */
 }
 
 .deleteEventWrapper:hover {

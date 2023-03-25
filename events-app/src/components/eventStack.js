@@ -4,7 +4,6 @@ import {MdDeleteForever} from "react-icons/md";
 import {GiQueenCrown} from "react-icons/gi";
 import {setFormData} from "../stores/formSlice";
 
-
 export default function EventStack() {
     const {events} = useSelector((store)=>store.session)
     const dispatch = useDispatch()
@@ -16,10 +15,10 @@ export default function EventStack() {
         dispatch(setFormData(event))
     }
 
-    function deleteEvent(e) {
-        const event_id = e.target.getAttribute("value")
-        console.log(event_id)
-    }
+    // function deleteEvent(e) {
+    //     const event_id = e.target.getAttribute("value")
+    //     console.log(event_id)
+    // }
 
     function EventItems() {
         return (events.map((event) => {
@@ -28,8 +27,8 @@ export default function EventStack() {
                         <p>{event.eventname}</p>
                         <span className="premiumIcon">{event.eventtype === "Premium" && <GiQueenCrown/>}</span>
                     </div>
-                    
-                    <div className="deleteEventWrapper" key={event.id} value={event.id} onClick={deleteEvent}>
+
+                    <div className="deleteEventWrapper" key={event.id} value={event.id}> {/*onClick={deleteEvent} */}
                         <MdDeleteForever/>
                     </div>
                 </div>
