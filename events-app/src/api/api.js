@@ -2,7 +2,6 @@ import {
     CREATE_USER, 
     USER_CREATE_FAIL,
     CREATE_USER_EVENTS,
-    EVENTS_CREATION_FAILED
 } from "../constants/constants"
 
 import db from "../db.json"
@@ -90,17 +89,6 @@ function addEventToUser(form, loggedUserEmail) {
             "eventtype": form.eventType,
             "eventtc": form.eventTC,
         })
-    })
-    .then((response)=> {
-        if (response.status < 200 || response.status > 201) {
-            throw new Error(EVENTS_CREATION_FAILED)
-        }
-        return response.json()
-    })
-    .then(res=>{
-        if (!res.id) {
-            throw new Error(EVENTS_CREATION_FAILED)
-        }
     })
     .catch(err=> {
         console.error(err)

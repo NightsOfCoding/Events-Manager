@@ -1,0 +1,98 @@
+
+.eventWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.eventContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.eventStackWrapper,
+.eventFormWrapper{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 30px;
+    margin: 10px;
+    margin-top: 20px;
+}
+.eventStackWrapper{
+    width: 400px;
+}
+.events-header{
+    font-size: 25px;
+    text-align: left;
+    font-weight: 300;
+}
+.event{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #eeeeee;
+    margin-block: 5px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 5px;
+}
+.eventDetails{
+    display: flex;
+}
+.eventDetails .premiumIcon{
+    color: gold;
+    margin-left: 10px;
+}
+.eventDetails p{
+    margin: 0;
+}
+.kpiWrapper{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+}
+.kpiWrapper h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.customFormControl{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.customFormControl .form-label{
+    display: inherit;
+}
+.text-muted{
+    color: #eee;
+    font-size: 12px;
+}
+.customFormControl input[type="text"],
+.customFormControl input[type="password"],
+.customFormControl input[type="email"],
+button{
+    height: 50px;
+}
+.eventTypeWrapper{
+    margin-block: 20px ;
+}
+.eventTypeWrapper p{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.eventTypeCheckWrapper{
+    display: flex;
+}
+.eventTypeCheckWrapper .form-check:first-of-type{
+    margin-right: 40px;
+}
+.acceptTermsWrapper{
+    display: flex;
+    align-items: center;
+}
+.acceptTermsWrapper label{
+    text-align: left;
+    margin-left: 10px;
+}

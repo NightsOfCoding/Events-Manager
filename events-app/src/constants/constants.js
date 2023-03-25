@@ -1,8 +1,8 @@
 //  API URL
- export const GET_USERS_URL = "http://localhost:2222/users"
- export const GET_USER = "http://localhost:2222/users?email="
- export const CREATE_USER = "http://localhost:2222/users"
- export const CREATE_USER_EVENTS = "http://localhost:2222/events"
+ export const GET_USERS_URL = "http://localhost:2223/users"
+ export const GET_USER = "http://localhost:2223/users?email="
+ export const CREATE_USER = "http://localhost:2223/users"
+ export const CREATE_USER_EVENTS = "http://localhost:2223/events"
 
 //  Messages
 export const USER_NOT_FOUND = "User Not Found!"

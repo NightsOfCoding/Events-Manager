@@ -34,6 +34,8 @@ import {
     setUserSession
 } from "../stores/sessionSlice"
 
+import './login.css'
+
 export default function Login() {
     const {isLogin, username, email, password} = useSelector((store)=> store.login)
     const dispatch = useDispatch()
@@ -93,14 +95,8 @@ export default function Login() {
     }
 
     return (
-        <Container>
-            <Row>
-                <Col xs={8} md={4}/>
-                <Col xs={8} md={4}>
-                    <LoginCard/>
-                </Col>
-                <Col xs={8} md={4}/>
-            </Row>
+        <Container className="formContainer">
+            <LoginCard/>
         </Container>
     )
 
@@ -112,35 +108,35 @@ export default function Login() {
                 <Card.Body>
                     <LoginAlert/>
                     <Form>
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm="4">
+                        <Form.Group as={Row} className="mb-3 customFormControl">
+                            <Form.Label  sm="4">
                                 Email
                             </Form.Label>
-                            <Col sm="8">
+                            <div sm="8">
                                 <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>dispatch(setEmail(e.target.value))}/>
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
-                            </Col>
+                            </div>
                         </Form.Group>
 
                         {!isLogin &&
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm="4">
+                        <Form.Group as={Row} className="mb-3 customFormControl">
+                            <Form.Label  sm="4">
                                 User Name
                             </Form.Label>
-                            <Col sm="8">
+                            <div sm="8">
                                 <Form.Control type="text" placeholder="User name" value={username} onChange={(e)=>dispatch(setUsername(e.target.value))}/>
-                            </Col>
+                            </div>
                         </Form.Group>}
 
-                        <Form.Group as={Row} className="mb-3">
-                            <Form.Label column sm="4">
+                        <Form.Group as={Row} className="mb-3 customFormControl">
+                            <Form.Label  sm="4">
                                 Password
                             </Form.Label>
-                            <Col sm="8">
+                            <div sm="8">
                                 <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>dispatch(setPassword(e.target.value))}/>
-                            </Col>
+                            </div>
                         </Form.Group>
 
                         <div className="d-grid gap-2">
@@ -149,7 +145,8 @@ export default function Login() {
                         </div>
                     </Form>
                 </Card.Body>
-                <Card.Footer className="text-muted">{isLogin ? "Not Registered? " : "Already a user, Sign In"}
+                <Card.Footer className="text-muted">
+                    <span>{isLogin ? "Not Registered? " : "Already a user, Sign In"}</span>
                     {
                         isLogin && <span>
                             <Button variant="light" size="sm" onClick={()=>dispatch(setIsLoginFalse())}>CREATE NEW</Button>

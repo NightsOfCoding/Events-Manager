@@ -1,0 +1,45 @@
+.formContainer{
+    margin-block: 20px;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    padding: 20px 30px 30px 30px;
+    width: 500px;
+    border: none !important;
+    box-shadow: 0px 1px 15px #eee;
+}
+.card-header{
+    background-color: #fff !important;
+    border-bottom: 0 !important;
+}
+.card-body{
+    padding: 0;
+}
+.customFormControl{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.customFormControl .form-label{
+    display: inherit;
+}
+.text-muted{
+    color: #eee;
+    font-size: 12px;
+}
+.customFormControl input,
+button{
+    height: 50px;
+}
+.card-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    border: none !important;
+}
+.card-footer button{
+    cursor: pointer;
+    text-decoration: underline;
+}

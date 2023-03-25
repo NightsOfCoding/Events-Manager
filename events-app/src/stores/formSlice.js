@@ -27,8 +27,7 @@ export const formSlice = createSlice({
             state.eventType = action.payload
         },
         setEventTc: (state, action) => {
-            console.log(action.payload)
-            state.eventTC = !state.eventTC
+            state.eventTC = action.payload
         },
         clearForm: (state) => {
             return {
@@ -50,7 +49,8 @@ export const {
     setEventDesc,
     setEventPrice,
     setEventType,
-    setEventTc
+    setEventTc,
+    clearForm
 } = formSlice.actions
 
 export default formSlice.reducer

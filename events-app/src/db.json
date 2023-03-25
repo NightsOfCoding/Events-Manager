@@ -4,28 +4,24 @@
       "email": "yashwanth@gmail.com",
       "username": "yashwanth",
       "password": "Yash@123",
-      "events": [],
       "id": 1
     },
     {
       "email": "abc@gmail.com",
       "username": "abc",
       "password": "ABC@123q",
-      "events": [],
       "id": 2
     },
     {
       "email": "xyz@gmail.com",
       "username": "xyz",
       "password": "ABC@123q",
-      "events": [],
       "id": 3
     },
     {
       "email": "pqr@gmail.com",
       "username": "pqr",
       "password": "ABC@123q",
-      "events": [],
       "id": 4
     },
     {
@@ -37,50 +33,6 @@
   ],
   "events": [
     {
-      "email": "asd@gmail.com",
-      "userid": 5,
-      "username": "asd",
-      "eventname": "Event 1",
-      "price": "10",
-      "id": 1
-    },
-    {
-      "email": "asd@gmail.com",
-      "userid": 5,
-      "username": "asd",
-      "eventname": "Event 2",
-      "price": "20",
-      "id": 2
-    },
-    {
-      "email": "asd@gmail.com",
-      "userid": 5,
-      "username": "asd",
-      "eventname": "Event 3",
-      "price": "30",
-      "id": 3
-    },
-    {
-      "email": "asd@gmail.com",
-      "userid": 5,
-      "username": "asd",
-      "eventname": "Event 4",
-      "price": "40",
-      "id": 4
-    },
-    {
-      "email": "asd@gmail.com",
-      "userid": 5,
-      "username": "asd",
-      "eventname": "Event 5",
-      "eventdate": "2023-03-31",
-      "eventdesc": "testing",
-      "price": "3",
-      "eventtype": "Normal",
-      "eventtc": true,
-      "id": 5
-    },
-    {
       "email": "pqr@gmail.com",
       "userid": 4,
       "username": "pqr",
@@ -90,7 +42,7 @@
       "price": "4",
       "eventtype": "Normal",
       "eventtc": true,
-      "id": 6
+      "id": 1
     },
     {
       "email": "pqr@gmail.com",
@@ -100,9 +52,9 @@
       "eventdate": "2023-03-31",
       "eventdesc": "Testing",
       "price": "3",
-      "eventtype": "Normal",
+      "eventtype": "Premium",
       "eventtc": true,
-      "id": 7
+      "id": 2
     }
   ]
 }
