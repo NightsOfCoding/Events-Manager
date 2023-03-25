@@ -1,58 +1,35 @@
 {
   "users": [
     {
-      "email": "yashwanth@gmail.com",
-      "username": "yashwanth",
-      "password": "Yash@123",
+      "email": "Testing@gmail.com",
+      "username": "Tester",
+      "password": "Tester@123",
+      "events": [],
       "id": 1
-    },
-    {
-      "email": "abc@gmail.com",
-      "username": "abc",
-      "password": "ABC@123q",
-      "id": 2
-    },
-    {
-      "email": "xyz@gmail.com",
-      "username": "xyz",
-      "password": "ABC@123q",
-      "id": 3
-    },
-    {
-      "email": "pqr@gmail.com",
-      "username": "pqr",
-      "password": "ABC@123q",
-      "id": 4
-    },
-    {
-      "email": "asd@gmail.com",
-      "username": "asd",
-      "password": "Asd@1234",
-      "id": 5
     }
   ],
   "events": [
     {
-      "email": "pqr@gmail.com",
-      "userid": 4,
-      "username": "pqr",
-      "eventname": "Event 1",
+      "email": "Testing@gmail.com",
+      "userid": 1,
+      "username": "Tester",
+      "eventname": "Developer Event",
       "eventdate": "2023-03-31",
-      "eventdesc": "Testing",
-      "price": "4",
-      "eventtype": "Normal",
+      "eventdesc": "Event for aspiring software engineers to excel at their career and future for a better technical knowledge and growth.",
+      "price": "2500",
+      "eventtype": "Premium",
       "eventtc": true,
       "id": 1
     },
     {
-      "email": "pqr@gmail.com",
-      "userid": 4,
-      "username": "pqr",
-      "eventname": "Event 2",
-      "eventdate": "2023-03-31",
-      "eventdesc": "Testing",
-      "price": "3",
-      "eventtype": "Premium",
+      "email": "Testing@gmail.com",
+      "userid": 1,
+      "username": "Tester",
+      "eventname": "Business Event",
+      "eventdate": "2023-03-29",
+      "eventdesc": "Event on how to excel at your business by gaining leads and potential customers for the services or products provided by your business.",
+      "price": "500",
+      "eventtype": "Normal",
       "eventtc": true,
       "id": 2
     }

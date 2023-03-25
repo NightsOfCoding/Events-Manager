@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { useSelector, useDispatch } from 'react-redux'
 import Form from "react-bootstrap/Form"
 import {
@@ -89,6 +88,7 @@ export default function Login() {
             } else {
                 dispatch(setSuccessMsg(USER_CREATED))
                 dispatch(setLoggedIn(true))
+                dispatch(setIsLoginFalse())
                 navigate("/")
             }
         }
@@ -96,14 +96,7 @@ export default function Login() {
 
     return (
         <Container className="formContainer">
-            <LoginCard/>
-        </Container>
-    )
-
-    function LoginCard() {
-        return (
-            <>
-                <Card className="text-center">
+            <Card className="text-center">
                 <Card.Header>{isLogin ? "SIGN IN" : "SIGN UP"}</Card.Header>
                 <Card.Body>
                     <LoginAlert/>
@@ -154,7 +147,6 @@ export default function Login() {
                     }
                 </Card.Footer>
                 </Card>
-            </>
-        )
-    }
+        </Container>
+    )
 }
