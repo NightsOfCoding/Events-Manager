@@ -82,7 +82,6 @@ export const sessionSlice = createSlice({
     },
     extraReducers: {
         [getUserEvents.fulfilled]: (state, action) => {
-            console.log(action.payload)
             let events = action.payload.filter((act)=> act.email===state.loggedUserEmail)
 
             if (events.length > 0) {
