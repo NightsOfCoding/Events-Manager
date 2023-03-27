@@ -35,8 +35,7 @@ function addUser(email, password, username) {
         body: JSON.stringify({
             "email": email,
             "username": username,
-            "password": password,
-            "events": []
+            "password": password
         })
     })
     .then(response => {
