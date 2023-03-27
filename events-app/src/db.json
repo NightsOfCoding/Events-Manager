@@ -20,18 +20,6 @@
       "eventtype": "Premium",
       "eventtc": true,
       "id": 1
-    },
-    {
-      "email": "Testing@gmail.com",
-      "userid": 1,
-      "username": "Tester",
-      "eventname": "Business Event",
-      "eventdate": "2023-03-29",
-      "eventdesc": "Event on how to excel at your business by gaining leads and potential customers for the services or products provided by your business.",
-      "price": "500",
-      "eventtype": "Normal",
-      "eventtc": true,
-      "id": 2
     }
   ]
 }

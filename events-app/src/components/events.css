@@ -102,13 +102,13 @@ button{
 }
 
 .deleteEventWrapper {
-    height: 100%;
+    border: 1px black;
     /* align-items: flex-end; */
     /* justify-content: flex-end; */
 }
 
 .deleteEventWrapper:hover {
-    border-radius: 25%;
     background-color: #eee;
     color: #0d6efd;
+    
 }
