@@ -35,8 +35,7 @@ function addUser(email, password, username) {
         body: JSON.stringify({
             "email": email,
             "username": username,
-            "password": password,
-            "events": []
+            "password": password
         })
     })
     .then(response => {
@@ -96,4 +95,16 @@ function addEventToUser(form, loggedUserEmail) {
 
     return flag
 }
-export {checkUser, addUser, addEventToUser}
+
+function deleteEventForUser(event_id) {
+    fetch(`${CREATE_USER_EVENTS}/${event_id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .catch(err=> {
+        console.error(err)
+    })
+}
+export {checkUser, addUser, addEventToUser, deleteEventForUser}
